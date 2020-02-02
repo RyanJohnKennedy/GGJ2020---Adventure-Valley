@@ -58,7 +58,7 @@ public class BuildingController : MonoBehaviour
     {
         if (isFixed)
         {
-            if (oreTimer == 20)
+            if (oreTimer == 90)
             {
                 GC.GoldOreGain();
 
@@ -75,7 +75,7 @@ public class BuildingController : MonoBehaviour
     {
         if (isFixed)
         {
-            if (barTimer == 60)
+            if (barTimer == 130)
             {
                 GC.GoldBarGain();
 

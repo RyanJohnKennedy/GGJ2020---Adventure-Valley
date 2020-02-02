@@ -44,6 +44,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -59,23 +63,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10088}
     - Class: 114
-      Script: {instanceID: 10232}
+      Script: {instanceID: 10172}
     - Class: 114
-      Script: {instanceID: 10428}
+      Script: {instanceID: 10234}
     - Class: 114
-      Script: {instanceID: 10572}
+      Script: {instanceID: 10430}
     - Class: 114
-      Script: {instanceID: 10736}
+      Script: {instanceID: 10574}
     - Class: 114
-      Script: {instanceID: 10984}
+      Script: {instanceID: 10738}
     - Class: 114
-      Script: {instanceID: 11016}
+      Script: {instanceID: 10986}
     - Class: 114
-      Script: {instanceID: 11356}
+      Script: {instanceID: 11018}
     - Class: 114
-      Script: {instanceID: 11380}
+      Script: {instanceID: 11358}
     - Class: 114
-      Script: {instanceID: 80398}
+      Script: {instanceID: 11382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -263,6 +267,12 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OutOfOrderSigns
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -353,7 +363,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 3cc03baf65fe0db081371519a93df3aa
+      Hash: ff70c4698a6be5697a1914fec047b3ac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -543,13 +553,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: OutOfOrderSigns
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/GameJam2020(Jan)/Game Build/GGJ2020.exe
+  playerPath: D:/UnityBuilds/Adventure Valley/GGJ2020.exe

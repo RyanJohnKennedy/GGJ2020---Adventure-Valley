@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (isRobotSpawned == false)
                 {
-                    if (GC.MoneyAmount > RobotPrice)
+                    if (GC.MoneyAmount >= RobotPrice)
                     {
                         GC.MoneyAmount -= RobotPrice;
 
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (GC.MoneyAmount > RobotPrice)
+                    if (GC.MoneyAmount >= RobotPrice)
                     {
                         GC.MoneyAmount -= RobotPrice;
                         RobotPrice = Mathf.RoundToInt(RobotPrice * 1.2f);
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Repair"))
             {
-                if (GC.MoneyAmount > buildingCost)
+                if (GC.MoneyAmount >= buildingCost)
                 {
                     GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Repair"))
             {
-                if (GC.MoneyAmount > buildingCost)
+                if (GC.MoneyAmount >= buildingCost)
                 {
                     GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Repair"))
             {
-                if (GC.MoneyAmount > buildingCost)
+                if (GC.MoneyAmount >= buildingCost)
                 {
                     GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
