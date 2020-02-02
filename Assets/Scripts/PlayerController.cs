@@ -30,10 +30,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
 
     private int RobotPrice = 600;
-    private int buildingCost = 300;
+    public int buildingCost = 250;
     
     public bool isRobotSpawned = false;
-    public int UpgradeCounter = 1;
+    public int UpgradeCounter = 2;
 
     Vector3 velocity;
 
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
                         GC.MoneyAmount -= RobotPrice;
 
                         Instantiate(Robot, other.transform.position, other.transform.rotation);
-                        RobotPrice = Mathf.RoundToInt(RobotPrice * 1.2f);
+                        RobotPrice = 100;
                         isRobotSpawned = true;
                     }
                 }
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
                     if (GC.MoneyAmount >= RobotPrice)
                     {
                         GC.MoneyAmount -= RobotPrice;
-                        RobotPrice = Mathf.RoundToInt(RobotPrice * 1.2f);
+                        RobotPrice = Mathf.RoundToInt(RobotPrice * 1.1f);
 
                         UpgradeCounter++;
                         RobotController RC = GameObject.FindGameObjectWithTag("Robot").GetComponent<RobotController>();
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
                     GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
                     Instantiate(mine, new Vector3(other.transform.position.x, -0.6f, other.transform.position.z), other.transform.rotation);
-                    buildingCost = Mathf.RoundToInt(buildingCost * 1.2f);
+                    buildingCost += 50;
                     Destroy(other.gameObject);
                 }
             }
@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
                     GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
                     Instantiate(factory, new Vector3(other.transform.position.x, 0f, other.transform.position.z), other.transform.rotation);
-                    buildingCost = Mathf.RoundToInt(buildingCost * 1.2f);
+                    buildingCost += 50;
                     Destroy(other.gameObject);
                 }
             }
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
                     GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
                     Instantiate(market, new Vector3(other.transform.position.x, -0.6f, other.transform.position.z), other.transform.rotation);
-                    buildingCost = Mathf.RoundToInt(RobotPrice * 1.2f);
+                    buildingCost += 50;
                     Destroy(other.gameObject);
                 }
             }
