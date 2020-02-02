@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Text GoldOre;
-    public Text GoldBar;
-    public Text Money;
+    public Text goldOreText;
+    public Text goldBarText;
+    public Text moneyText;
+    public GameObject brokenBuildingText;
 
-    public GameObject Menu;
-    public GameObject ResourcePanel;
+    public GameObject menuPanel;
+    public GameObject resourcePanel;
+
+    private GameObject[] buildings;
 
     public int goldOreAmount;
 
@@ -45,9 +48,20 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GoldOre.text = "Gold Ore: " + goldOreAmount;
-        GoldBar.text = "Gold Bar: " + goldBarAmount;
-        Money.text = "Money: " + moneyAmount;
+        buildings = GameObject.FindGameObjectsWithTag("Building");
+        brokenBuildingText.SetActive(false);
+
+        for (int i = 0; i < buildings.Length; i++)
+        {
+            if(buildings[i].GetComponent<BuildingController>().isFixed == false)
+            {
+                brokenBuildingText.SetActive(true);
+            }
+        }
+
+        goldOreText.text = "Gold Ore: " + goldOreAmount;
+        goldBarText.text = "Gold Bar: " + goldBarAmount;
+        moneyText.text = "Money: " + moneyAmount;
     }
 
     public void GoldOreGain()
@@ -83,8 +97,8 @@ public class GameController : MonoBehaviour
 
     public void CloseMenu()
     {
-        Menu.SetActive(false);
-        ResourcePanel.SetActive(true);
+        menuPanel.SetActive(false);
+        resourcePanel.SetActive(true);
     }
 
     public void QuitGame()

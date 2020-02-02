@@ -30,9 +30,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
 
     private int RobotPrice = 600;
-    private int minePrice = 300;
-    private int factoryPrice = 300;
-    private int marketPrice = 300;
+    private int buildingCost = 300;
     
     public bool isRobotSpawned = false;
     public int UpgradeCounter = 1;
@@ -91,17 +89,28 @@ public class PlayerController : MonoBehaviour
         else if(other.tag == "RobotBuy")
         {
             pressEToBuy.SetActive(true);
+            if (isRobotSpawned == false)
+            {
+                pressEToBuy.GetComponent<Text>().text = "Press E to buy\nCost: " + RobotPrice;
+            }
+            else
+            {
+                pressEToBuy.GetComponent<Text>().text = "Press E to upgrade\nCost: " + RobotPrice;
+            }
         }
         else if(other.tag == "BuildMine")
         {
+            pressEToBuy.GetComponent<Text>().text = "Press E to buy\nCost: " + buildingCost;
             pressEToBuy.SetActive(true);
         }
         else if (other.tag == "BuildFactory")
         {
+            pressEToBuy.GetComponent<Text>().text = "Press E to buy\nCost: " + buildingCost;
             pressEToBuy.SetActive(true);
         }
         else if (other.tag == "BuildMarket")
         {
+            pressEToBuy.GetComponent<Text>().text = "Press E to buy\nCost: " + buildingCost;
             pressEToBuy.SetActive(true);
         }
     }
@@ -127,7 +136,7 @@ public class PlayerController : MonoBehaviour
                         GC.MoneyAmount -= RobotPrice;
 
                         Instantiate(Robot, other.transform.position, other.transform.rotation);
-                        RobotPrice *= 2;
+                        RobotPrice = Mathf.RoundToInt(RobotPrice * 1.2f);
                         isRobotSpawned = true;
                     }
                 }
@@ -136,7 +145,7 @@ public class PlayerController : MonoBehaviour
                     if (GC.MoneyAmount > RobotPrice)
                     {
                         GC.MoneyAmount -= RobotPrice;
-                        RobotPrice *= 2;
+                        RobotPrice = Mathf.RoundToInt(RobotPrice * 1.2f);
 
                         UpgradeCounter++;
                         RobotController RC = GameObject.FindGameObjectWithTag("Robot").GetComponent<RobotController>();
@@ -149,12 +158,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Repair"))
             {
-                if (GC.MoneyAmount > minePrice)
+                if (GC.MoneyAmount > buildingCost)
                 {
-                    GC.MoneyAmount -= minePrice;
+                    GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
                     Instantiate(mine, new Vector3(other.transform.position.x, -0.6f, other.transform.position.z), other.transform.rotation);
-                    minePrice *= 2;
+                    buildingCost = Mathf.RoundToInt(buildingCost * 1.2f);
                     Destroy(other.gameObject);
                 }
             }
@@ -163,12 +172,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Repair"))
             {
-                if (GC.MoneyAmount > factoryPrice)
+                if (GC.MoneyAmount > buildingCost)
                 {
-                    GC.MoneyAmount -= factoryPrice;
+                    GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
                     Instantiate(factory, new Vector3(other.transform.position.x, 0f, other.transform.position.z), other.transform.rotation);
-                    factoryPrice *= 2;
+                    buildingCost = Mathf.RoundToInt(buildingCost * 1.2f);
                     Destroy(other.gameObject);
                 }
             }
@@ -177,12 +186,12 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Repair"))
             {
-                if (GC.MoneyAmount > marketPrice)
+                if (GC.MoneyAmount > buildingCost)
                 {
-                    GC.MoneyAmount -= marketPrice;
+                    GC.MoneyAmount -= buildingCost;
                     pressEToBuy.SetActive(false);
                     Instantiate(market, new Vector3(other.transform.position.x, -0.6f, other.transform.position.z), other.transform.rotation);
-                    marketPrice *= 2;
+                    buildingCost = Mathf.RoundToInt(RobotPrice * 1.2f);
                     Destroy(other.gameObject);
                 }
             }
