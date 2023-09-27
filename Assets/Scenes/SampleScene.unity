@@ -3162,6 +3162,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  buildingCost: 250
   isRobotSpawned: 0
   UpgradeCounter: 1
 --- !u!1 &601932790 stripped
@@ -7083,7 +7084,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
